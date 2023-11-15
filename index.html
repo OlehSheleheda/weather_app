@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>My weather application</title>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header>
+        <form id="form1">
+          <input
+            id="form-city"
+            type="search"
+            placeholder="Enter a city.."
+            class="search-input"
+          />
+          <input type="submit" value="Search" class="search-button" />
+        </form>
+        
+      </header>
+      <h2>Hello</h2>
+      <main>
+        <div class="current-weather">
+          <div>
+            <h1 class="current-city" id="h1-city">City</h1>
+            <p class="current-details">
+              <span id="day-time"></span>moderate rain <br />
+              Humidity: <strong><span id="current-humidity">--</span>%</span></strong
+              >, Wind: <strong><span id="curWindSpeed">--.-km/h</span></strong>
+            </p>
+          </div>
+          <div class="current-temperature">
+            <span id="current-icon" class="current-temperature-icon"></span>
+            <span id="current-temperature" class="current-temperature-value"
+              >--</span
+            >
+             asdg adsg asdgas dg
+             asdg
+              as
+              dg 
+              adsgg asd          
+            <span class="current-temperature-unit">°C</span>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>
+          This project was coded by
+          <a href="#" target="_blank">Matt Delac</a> and is
+          <a href="#" target="_blank"> on GitHub</a> and
+          <a href="#" target="_blank">hosted on Netlify</a>
+        </p>
+      </footer>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
