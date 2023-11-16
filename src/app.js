@@ -50,17 +50,20 @@ function getData(response) {
   curWindSpeedElement.innerHTML = curWindSpeed;
 }
 
-function changeWeather(answer) {
-  answer.preventDefault();
-
-  let searchForm = document.querySelector("#form-city");
-  let city = `${searchForm.value}`;
-
+function searchCity(city) {
   let key = `7878d011dt257f603164ea9dcabco754`;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${key}&units=metric`;
 
   axios.get(apiUrl).then(getData);
 }
 
+function startSearchSubmit(answer) {
+  answer.preventDefault();
+  let searchForm = document.querySelector("#form-city");
+  searchCity(searchForm.value);
+}
+
 let form = document.querySelector("#form1");
-form.addEventListener("submit", changeWeather);
+form.addEventListener("submit", startSearchSubmit);
+
+searchCity("Helsinki");
