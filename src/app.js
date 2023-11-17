@@ -28,9 +28,9 @@ function getData(response) {
   let cityValueStart = `${curCity}, ${curCountry}`;
 
   if (cityValueStart.length > 20) {
-    cityElement.innerHTML = `<font size="4">${curCity}, ${curCountry}</font>`;
+    cityElement.innerHTML = `${curCity},</br>${curCountry}`;
   } else {
-    cityElement.innerHTML = `<h1 class="current-city" id="h1-city">${curCity}, ${curCountry}</h1>`;
+    cityElement.innerHTML = `${curCity}, ${curCountry}`;
   }
 
   let curTemperatureElement = document.querySelector("#current-temperature");
@@ -39,7 +39,13 @@ function getData(response) {
 
   let curIconElement = document.querySelector("#current-icon");
   let curIcon = response.data.condition.icon_url;
-  curIconElement.innerHTML = `<img src="${curIcon}" alt="Icon" style="width: 40px; height: 40px; object-fit: none;"></img>`;
+  curIconElement.innerHTML = `<img src="${curIcon}">`;
+
+  let conditionDescriptionElement = document.querySelector(
+    "#condition-description"
+  );
+  let conditionDescription = response.data.condition.description;
+  conditionDescriptionElement.innerHTML = conditionDescription;
 
   let curHumidityElement = document.querySelector("#current-humidity");
   let curHumidity = Math.round(response.data.temperature.humidity);

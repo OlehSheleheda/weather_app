@@ -26,34 +26,37 @@
           />
           <input type="submit" value="Search" class="search-button" />
         </form>
-        
       </header>
-       <main>
-        <div class="current-weather">
-          <div>
-            <h1 class="current-city" id="h1-city">Your city name</h1>
-            <p class="current-details">
-              <span id="day-time"></span>moderate rain <br />
-              Humidity: <strong><span id="current-humidity">--</span>%</span></strong
-              >, Wind: <strong><span id="curWindSpeed">--.-km/h</span></strong>
-            </p>
-          </div>
-          <div class="current-temperature">
-            <span id="current-icon" class="current-temperature-icon"></span>
-            <span id="current-temperature" class="current-temperature-value"
-              >--</span
-            >
-                  
-            <span class="current-temperature-unit">°C</span>
-          </div>
+      <main class="current-weather">
+        <div class="city-weather-condition">
+          <div class="current-city" id="h1-city">City</div>
+          <p class="current-details">
+            <span id="day-time"></span
+            ><span id="condition-description">---</span> <br />
+            Humidity: <strong><span id="current-humidity"></span></strong>,
+            Wind: <strong><span id="curWindSpeed">--.-km/h</span></strong>
+          </p>
+        </div>
+        <div class="current-temperature">
+          <div id="current-icon" class="current-icon"></div>
+          <div id="current-temperature" class="current-temperature-value"></div>
+          <div class="current-temperature-unit">°C</div>
         </div>
       </main>
       <footer>
         <p>
           This project was coded by
-          <a href="https://github.com/OlehSheleheda" target="_blank">Oleh Sheleheda</a> and is
-          <a href="https://github.com/OlehSheleheda" target="_blank"> on GitHub</a> and
-          <a href="https://www.netlify.com/" target="_blank">hosted on Netlify</a>
+          <a href="https://github.com/OlehSheleheda" target="_blank"
+            >Oleh Sheleheda</a
+          >
+          and is
+          <a href="https://github.com/OlehSheleheda" target="_blank">
+            on GitHub</a
+          >
+          and
+          <a href="https://www.netlify.com/" target="_blank"
+            >hosted on Netlify</a
+          >
         </p>
       </footer>
     </div>
