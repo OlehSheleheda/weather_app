@@ -1,10 +1,5 @@
-function changeTime() {
-  let now = new Date();
-  let hour = now.getHours();
-  let minute = now.getMinutes();
-  if (minute < 10) {
-    minute = `0${minute}`;
-  }
+function getData(response) {
+  let now = new Date(response.data.time * 1000);
   let days = [
     "Sunday",
     "Monday",
@@ -16,12 +11,19 @@ function changeTime() {
   ];
   let day = days[now.getDay()];
 
-  let dayTime = document.querySelector("#day-time");
-  dayTime.innerHTML = `${day} ${hour}:${minute}, `;
-}
-changeTime();
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-function getData(response) {
+  let dayTimeElement = document.querySelector("#day-time");
+  let dayTime = `${day}, ${hours}:${minutes}, `;
+  dayTimeElement.innerHTML = dayTime;
+
   let cityElement = document.querySelector("#h1-city");
   let curCity = response.data.city;
   let curCountry = response.data.country;
@@ -48,11 +50,11 @@ function getData(response) {
   conditionDescriptionElement.innerHTML = conditionDescription;
 
   let curHumidityElement = document.querySelector("#current-humidity");
-  let curHumidity = Math.round(response.data.temperature.humidity);
+  let curHumidity = `${Math.round(response.data.temperature.humidity)} %`;
   curHumidityElement.innerHTML = curHumidity;
 
   let curWindSpeedElement = document.querySelector("#curWindSpeed");
-  let curWindSpeed = Math.round(response.data.wind.speed);
+  let curWindSpeed = `${Math.round(response.data.wind.speed)} m/s`;
   curWindSpeedElement.innerHTML = curWindSpeed;
 }
 
