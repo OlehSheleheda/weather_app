@@ -16,6 +16,14 @@ main {
   padding: 20px 0px 10px 0px;
 }
 
+footer {
+  border-top: 1px solid #f9f7fe;
+  text-align: center;
+  padding-top: 15px;
+
+  color: rgba(39, 33, 66, 0.4);
+}
+
 .weather-app {
   background: white;
   max-width: 600px;
@@ -96,10 +104,35 @@ main {
   margin-top: 20px;
 }
 
-footer {
-  border-top: 1px solid #f9f7fe;
+.weather-forecast {
+  margin-top: 20px;
   text-align: center;
-  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  color: rgba(39, 33, 66, 0.4);
+.row {
+}
+
+.col-1 {
+}
+
+.weather-forecast-day {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  
+}
+
+.forecast-image {
+}
+
+.forecast-temperature-max {
+  font-weight: bold;
+  font-size: 14px;
+  color: #f65282;
+}
+
+.forecast-temperature-min {
+  font-size: 14px;
+  color: #f65282;
 }

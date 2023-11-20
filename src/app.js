@@ -75,3 +75,32 @@ let form = document.querySelector("#form1");
 form.addEventListener("submit", startSearchSubmit);
 
 searchCity("Helsinki");
+
+let weatherForecastElement = document.querySelectorAll("#weather-forecast");
+weatherForecastElement.innerHTML = `Hello`;
+console.log(weatherForecastElement);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = ``;
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="row">
+          <div class="col-1">
+            <div class="weather-forecast-day">${day}</div>
+              <img src="media/1.png" class="forecast-image" />
+                <div>
+                  <span class="forecast-temperature-max">23°</span>
+                    <span class="forecast-temperature-min">18°</span>
+                </div>
+              </div>
+            </div>`;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();

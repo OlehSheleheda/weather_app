@@ -27,20 +27,28 @@
           <input type="submit" value="Search" class="search-button" />
         </form>
       </header>
-      <main class="current-weather">
-        <div class="city-weather-condition">
-          <div class="current-city" id="h1-city">City</div>
-          <p class="current-details">
-            <span id="day-time"></span
-            ><span id="condition-description"></span> <br />
-            Humidity: <strong><span id="current-humidity"></span></strong>,
-            Wind: <strong><span id="curWindSpeed">--.-km/h</span></strong>
-          </p>
+      <main>
+        <div class="current-weather">
+          <div class="city-weather-condition">
+            <div class="current-city" id="h1-city">City</div>
+            <p class="current-details">
+              <span id="day-time"></span
+              ><span id="condition-description"></span> <br />
+              Humidity: <strong><span id="current-humidity"></span></strong>,
+              Wind: <strong><span id="curWindSpeed">--.-km/h</span></strong>
+            </p>
+          </div>
+          <div class="current-temperature">
+            <div id="current-icon" class="current-icon"></div>
+            <div
+              id="current-temperature"
+              class="current-temperature-value"
+            ></div>
+            <div class="current-temperature-unit">°C</div>
+          </div>
         </div>
-        <div class="current-temperature">
-          <div id="current-icon" class="current-icon"></div>
-          <div id="current-temperature" class="current-temperature-value"></div>
-          <div class="current-temperature-unit">°C</div>
+        <div class="weather-forecast" id="weather-forecast">
+
         </div>
       </main>
       <footer>
