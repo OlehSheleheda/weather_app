@@ -56,6 +56,8 @@ function getData(response) {
   let curWindSpeedElement = document.querySelector("#curWindSpeed");
   let curWindSpeed = `${Math.round(response.data.wind.speed)} m/s`;
   curWindSpeedElement.innerHTML = curWindSpeed;
+
+  callCityForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -76,31 +78,44 @@ form.addEventListener("submit", startSearchSubmit);
 
 searchCity("Helsinki");
 
-let weatherForecastElement = document.querySelectorAll("#weather-forecast");
-weatherForecastElement.innerHTML = `Hello`;
-console.log(weatherForecastElement);
+// JS Forecast
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#weather-forecast");
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  let forecastHTML = ``;
-
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-        <div class="row">
-          <div class="col-1">
-            <div class="weather-forecast-day">${day}</div>
-              <img src="media/1.png" class="forecast-image" />
-                <div>
-                  <span class="forecast-temperature-max">23°</span>
-                    <span class="forecast-temperature-min">18°</span>
-                </div>
-              </div>
-            </div>`;
-  });
-  forecastElement.innerHTML = forecastHTML;
+function formatDay(time) {
+  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let dayTime = new Date(time * 1000);
+  return weekDays[dayTime.getDay()];
 }
 
-displayForecast();
+function getForecastData(response) {
+  let weatherForecastHtml = ``;
+
+  response.data.daily.forEach(function (daily, index) {
+    if (index < 5) {
+      let icon = daily.condition.icon_url;
+      let maxTemp = Math.round(daily.temperature.maximum);
+      let minTemp = Math.round(daily.temperature.minimum);
+
+      weatherForecastHtml =
+        weatherForecastHtml +
+        `
+      <div class="row">
+        <div class="col-1">
+          <div class="weather-forecast-day">${formatDay(daily.time)}</div>
+          <img src="${icon}" class="forecast-icon" alt=""/>
+          <div><span class="forecast-temperature-max">${maxTemp}°</span>
+           <span class="forecast-temperature-min">${minTemp}°</span>
+          </div>
+        </div>
+      </div>`;
+      let weatherForecastElement = document.querySelector("#weather-forecast");
+      weatherForecastElement.innerHTML = weatherForecastHtml;
+    }
+  });
+}
+
+function callCityForecast(city) {
+  let key = `7878d011dt257f603164ea9dcabco754`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${key}&units=metric`;
+  axios.get(apiUrl).then(getForecastData);
+}
+callCityForecast("Helsinki");

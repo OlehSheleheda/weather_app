@@ -108,13 +108,15 @@ footer {
   margin-top: 20px;
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  max-width: 600px;
 }
 
 .row {
 }
 
 .col-1 {
+  
 }
 
 .weather-forecast-day {
@@ -123,7 +125,11 @@ footer {
   
 }
 
-.forecast-image {
+.forecast-icon {
+margin: -10px -10px -10px -10px;
+width: 70px;
+height: 70px;
+
 }
 
 .forecast-temperature-max {
