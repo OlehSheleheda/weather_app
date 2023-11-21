@@ -102,7 +102,7 @@ function getForecastData(response) {
         <div class="col-1">
           <div class="weather-forecast-day">${formatDay(daily.time)}</div>
           <img src="${icon}" class="forecast-icon" alt=""/>
-          <div><span class="forecast-temperature-max">${maxTemp}°</span>
+          <div class="max-man-temperature"><span class="forecast-temperature-max">${maxTemp}°</span>
            <span class="forecast-temperature-min">${minTemp}°</span>
           </div>
         </div>
